@@ -1,0 +1,15 @@
+<div class="nested-fields field">
+    <div>検索コード</div>
+    <div class="col-md-6">
+        <label class="control-label">コード選択</label>
+            <%= f.select :part1, [
+                    ["Ⅰ", "Ⅰ"], ["Ⅱ", "Ⅱ"], ["Ⅲ", "Ⅲ"], 
+                    ["Ⅳ", "Ⅳ"], ["Ⅴ", "Ⅴ"], ["Ⅵ", "Ⅵ"], ["Ⅶ" ,"Ⅶ"]
+                ] %>
+            <%= f.select :part2, [["　", ""], ["♭", "♭"], ["#", "#"]] %>
+            <%= f.select :part3, [["　",""], ["M", "M"], ["m", "m"], ["dim", "dim"], ["aug", "aug"], ["sus4", "sus4"], ["sus2", "sus2"]] %>
+            <%= f.select :part4, [["　",""], ["7", "7"], ["6", "6"]] %>
+            <%= f.select :part5, [["　",""], ["♭5", "♭5"], ["add9", "add9"], ["♭9", "♭9"], ["9", "9"], ["#9", "#9"], ["11", "11"], ["#11", "#11"], ["13", "13"], ["♭13", "♭13"], ["omit3", "omit3"], ["omit5", "omit5"]] %>
+    </div>
+    <%= link_to_remove_association 'delete', f, class: 'btn btn-danger' %>
+</div>

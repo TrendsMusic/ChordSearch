@@ -1,0 +1,41 @@
+<%= form_with(model: @song, url: search_songs_path, local:true) do |f| %>
+
+    <div class="row form-group">
+        <%= f.label :title, "title", class:"control-label col-sm-2" %>
+        <div class="col-sm-10">
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
+         <%= f.label :artist, "artist", class:"control-label col-sm-2" %>
+        <div class="col-sm-10">
+            <%= f.text_field :artist, class: "form-control" %>
+        </div>
+        <%= f.label :genre, "genre", class:"control-label col-sm-2" %>
+        <div class="col-sm-10">
+            <%= f.select :genre, [[" ", ""],["Jpop","Jpop"],["Fpop","Fpop"],["Anime","Anime"],["Idol","Idol"],["ballad","ballad"],["Classic","Classic"],["Jazz","Jazz"]], class:"control-label col-sm-2" %>
+        </div>        
+        <%= f.label :key, "key", class:"control-label col-sm-2" %>
+        <div class="col-sm-10">
+            <%= f.text_field :key, class: "form-control" %>
+        </div>        
+        <%= f.label :section_numbar, "section", class:"control-label col-sm-2" %>
+        <div class="col-sm-10">
+            <%= f.text_field :section_numbar, class: "form-control" %>
+        </div>       
+    </div>
+    
+    
+    <%= f.fields_for :chords do |fs| %>
+       <%= fs.fields_for :fields do |fc| %>
+            <div class="chordtab">
+                  <%= render 'toppages/field_fields', f: fc %>
+            </div>
+            
+        <% end %>
+       <div class="links">
+            <%= link_to_add_association 'コードを追加', fs, :fields %>
+        </div>
+    <% end %>
+    
+    <%= f.submit :検索 , class:"btn btn-success" %>
+<% end %>
+

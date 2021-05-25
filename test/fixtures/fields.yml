@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  part1: MyString
+  part2: MyString
+  part3: MyString
+  part4: MyString
+  chord: one
+
+two:
+  part1: MyString
+  part2: MyString
+  part3: MyString
+  part4: MyString
+  chord: two

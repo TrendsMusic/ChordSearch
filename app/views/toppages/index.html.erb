@@ -1,0 +1,19 @@
+<% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <%= render "layouts/form_content" %>
+  
+  
+  
+  
+  
+  
+  
+<% else %>
+<div class="center jumbotron">
+  <div class="text-center">
+    <h3>コード進行検索サイト</h3>
+    <p>このサイトでは、コード進行の遷移を調査を行います。調べたいコードを選択すると、次にくる可能性が最も高いコードが表示されます。</p>
+    <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+  </div>
+</div>
+<% end %>

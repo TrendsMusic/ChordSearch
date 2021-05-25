@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  section_numbar: MyString
+  content: MyString
+  songs: one
+
+two:
+  section_numbar: MyString
+  content: MyString
+  songs: two
