@@ -58,3 +58,7 @@ gem 'kaminari'
 gem 'roo'
 gem 'cocoon'
 gem 'csv'
+
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end

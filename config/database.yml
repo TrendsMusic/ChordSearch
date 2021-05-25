@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: chordserch_production
   username: chordserch
   password: <%= ENV['CHORDSERCH_DATABASE_PASSWORD'] %>
