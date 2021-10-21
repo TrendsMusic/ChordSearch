@@ -13,10 +13,18 @@ before_action :require_user_logged_in
     def search
       searchkey =  song_search_params
       song = Song.new
-      songs, chords, chord_toSearch = song.search_preparation(current_user, searchkey)
+      songs, chords, chords_root, chords_ambi, chord_toSearch, chord_toSearch_root, chord_toSearch_ambi = song.search_preparation(current_user, searchkey)
       @chord_toSearch = chord_toSearch
       @songs, @using_songs, @using_song_rate = song.using_song_rate(current_user, songs, chords)
-      @count = song.getnextchords(chords, chord_toSearch)[1]
+      
+      next_targets = song.getnextchords(chords, chord_toSearch)[0]
+      back_targets = song.getnextchords(chords, chord_toSearch)[1]
+      next_targets_root = song.getnextchords(chords_root, chord_toSearch_root)[0]
+      back_targets_root = song.getnextchords(chords_root, chord_toSearch_root)[1]
+      next_targets_ambi = song.getnextchords(chords_ambi, chord_toSearch_ambi)[0]
+      back_targets_ambi = song.getnextchords(chords_ambi, chord_toSearch_ambi)[1]
+      #進行率計算
+      next_targets_root_rate = song.chord_calculate(next_targets_root)
     end
     
     def index_serch
@@ -45,7 +53,7 @@ before_action :require_user_logged_in
     
     def song_search_params
       params.require(:song).permit(:title, :artist, :genre, :key, :section_numbar, 
-      chords_attributes:[fields_attributes:[:part1, :part2, :part3, :part4, :part5, :_destroy]])
+      chords_attributes:[fields_attributes:[:part1, :part2, :part3, :part4, :part5, :part6, :part7, :part8, :_destroy]])
     end
     
     def index_serch_params

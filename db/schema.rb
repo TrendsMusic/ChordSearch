@@ -2,17 +2,17 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `bin/rails
-# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
-# be faster and is potentially less error prone than running all of your
-# migrations from scratch. Old migrations may fail to apply correctly if those
-# migrations use external dependencies or application code.
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_23_171939) do
+ActiveRecord::Schema.define(version: 2021_06_09_172700) do
 
-  create_table "chords", charset: "utf8", force: :cascade do |t|
+  create_table "chords", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "section_numbar"
     t.string "content"
     t.bigint "song_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_171939) do
     t.index ["song_id"], name: "index_chords_on_song_id"
   end
 
-  create_table "fields", charset: "utf8", force: :cascade do |t|
+  create_table "fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "part1"
     t.string "part2"
     t.string "part3"
@@ -31,10 +31,13 @@ ActiveRecord::Schema.define(version: 2021_05_23_171939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "part5"
+    t.string "part6"
+    t.string "part7"
+    t.string "part8"
     t.index ["chord_id"], name: "index_fields_on_chord_id"
   end
 
-  create_table "songs", charset: "utf8", force: :cascade do |t|
+  create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "artist"
     t.string "genre"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_171939) do
     t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
-  create_table "users", charset: "utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"

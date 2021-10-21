@@ -14,7 +14,6 @@ def getnextchords(chords)
     
 end
 
-chords,count = getnextchords(chords)
 
 p chords
 p count
