@@ -1,31 +1,93 @@
-<p><%= @using_songs%>  songs contians <%= @chord_toSearch%>  (<%= @using_song_rate%>)%</p>
+<h1><%= @title %><%=@artist%><%=@genre%><%= @key%><%=@section%> Chord Search</h1>
+
+<% @next_root =  @next_targets_root_rate.sort_by { |_, v| v }.reverse.to_h %>
+<% @back_root =  @back_targets_root_rate.sort_by { |_, v| v }.reverse.to_h %>
+<% @next_ambi =  @next_targets_ambi_rate.sort_by { |_, v| v }.reverse.to_h %>
+<% @back_ambi =  @back_targets_ambi_rate.sort_by { |_, v| v }.reverse.to_h %>
+
 <div>
   <table class="table table-bordered">
+    <h3><%= @chord_toSearch%> next root </h3>
     <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Artist</th>
-          <th>Genre</th>
-          <th>Section</th>
-          <th>Key</th>
-          <th>Chord</th>
-        </tr>
-    </thead>
+      <tr>
+        <th>#</th>
+        <th>Chord Cymbol</th>
+        <th>Rate(%)</th>
+      </tr>
+    </thead>  
     <tbody>
-      <% @songs.each do |song| %>
-        <% song.chords.each do |chord| %>
+      <% n = 0%>
+      <% @next_root.each do |h| %>
+      <% n = n + 1%>
           <tr>
-            <td><%= song.id %></td>
-            <td><%= song.title %></td>
-            <td><%= song.artist %></td>
-            <td><%= song.genre %></td>
-            <td><%= chord.section_numbar %></td>
-            <td><%= chord.key %></td>
-            <td><%= chord.content %></td>
+            <td><%= n %></td>
+            <td><%= h[0] %></td>
+            <td><%= h[1] %></td>
           </tr>
-        <% end %>
       <% end %>
-    </tbody> 
-  </table>
+    </tbody>
+    
+    
+  <table class="table table-bordered">
+    <h3><%= @chord_toSearch%> before root </h3>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Chord Cymbol</th>
+        <th>Rate(%)</th>
+      </tr>
+    </thead>  
+    <tbody>
+      <% n = 0%>
+      <% @back_root.each do |h| %>
+      <% n = n + 1%>
+          <tr>
+            <td><%= n %></td>
+            <td><%= h[0] %></td>
+            <td><%= h[1] %></td>
+          </tr>
+      <% end %>
+    </tbody>
+    
+    <table class="table table-bordered">
+    <h3><%= @chord_toSearch%> next triad </h3>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Chord Cymbol</th>
+        <th>Rate(%)</th>
+      </tr>
+    </thead>  
+    <tbody>
+      <% n = 0%>
+      <% @next_ambi.each do |h| %>
+       <% n = n + 1%>
+          <tr>
+            <td><%= n %></td>
+            <td><%= h[0] %></td>
+            <td><%= h[1] %></td>
+          </tr>
+      <% end %>
+    </tbody>
+    
+    <table class="table table-bordered">
+    <h3><%= @chord_toSearch%> before triad </h3>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Chord Cymbol</th>
+        <th>Rate(%)</th>
+      </tr>
+    </thead>  
+    <tbody>
+      <% n = 0%>
+      <% @back_ambi.each do |h| %>
+      <% n = n + 1%>
+          <tr>
+            <td><%= n %></td>
+            <td><%= h[0] %></td>
+            <td><%= h[1] %></td>
+          </tr>
+      <% end %>
+    </tbody>
 </div>

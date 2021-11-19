@@ -13,7 +13,7 @@ before_action :require_user_logged_in
     def search
       searchkey =  song_search_params
       song = Song.new
-      songs, chords, chords_root, chords_ambi, chord_toSearch, chord_toSearch_root, chord_toSearch_ambi = song.search_preparation(current_user, searchkey)
+      songs, chords, chords_root, chords_ambi, chord_toSearch, chord_toSearch_root, chord_toSearch_ambi, @title, @artist, @genre, @key, @section = song.search_preparation(current_user, searchkey)
       @chord_toSearch = chord_toSearch
       @songs, @using_songs, @using_song_rate = song.using_song_rate(current_user, songs, chords)
       
@@ -24,7 +24,13 @@ before_action :require_user_logged_in
       next_targets_ambi = song.getnextchords(chords_ambi, chord_toSearch_ambi)[0]
       back_targets_ambi = song.getnextchords(chords_ambi, chord_toSearch_ambi)[1]
       #進行率計算
-      next_targets_root_rate = song.chord_calculate(next_targets_root)
+      @next_targets_root_rate = song.chord_calculate(next_targets_root)[0]
+      @back_targets_root_rate = song.chord_calculate(back_targets_root)[0]
+      @next_targets_ambi_rate = song.chord_calculate(next_targets_ambi)[1]
+      @back_targets_ambi_rate = song.chord_calculate(back_targets_ambi)[1]
+      #next_targets_rate = song.chord_calculate(next_targets)
+      #back_targets_rate = song.chord_calculate(back_targets)
+      
     end
     
     def index_serch
