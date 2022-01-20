@@ -16,11 +16,13 @@ before_action :require_user_logged_in
       songs, chords, chords_root, chords_ambi, chord_toSearch, chord_toSearch_root, chord_toSearch_ambi, @title, @artist, @genre, @key, @section = song.search_preparation(current_user, searchkey)
       @chord_toSearch = chord_toSearch
       @songs, @using_songs, @using_song_rate = song.using_song_rate(current_user, songs, chords)
+      #@songs_root, @using_songs_root, @using_song_root_rate = song.using_song_rate(current_user, songs, chords_root)
+      #@songs_ambi, @using_songs_ambi, @using_song_ambi_rate = song.using_song_rate(current_user, songs, chords_ambi)
       
       next_targets = song.getnextchords(chords, chord_toSearch)[0]
       back_targets = song.getnextchords(chords, chord_toSearch)[1]
-      next_targets_root = song.getnextchords(chords_root, chord_toSearch_root)[0]
-      back_targets_root = song.getnextchords(chords_root, chord_toSearch_root)[1]
+      next_targets_root = song.getnextchords(chords_ambi, chord_toSearch_ambi)[0]
+      back_targets_root = song.getnextchords(chords_ambi, chord_toSearch_ambi)[1]
       next_targets_ambi = song.getnextchords(chords_ambi, chord_toSearch_ambi)[0]
       back_targets_ambi = song.getnextchords(chords_ambi, chord_toSearch_ambi)[1]
       #進行率計算

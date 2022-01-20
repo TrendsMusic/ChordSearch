@@ -1,10 +1,10 @@
 <h1><%= @title %><%=@artist%><%=@genre%><%= @key%><%=@section%> Chord Search</h1>
-
 <% @next_root =  @next_targets_root_rate.sort_by { |_, v| v }.reverse.to_h %>
 <% @back_root =  @back_targets_root_rate.sort_by { |_, v| v }.reverse.to_h %>
 <% @next_ambi =  @next_targets_ambi_rate.sort_by { |_, v| v }.reverse.to_h %>
 <% @back_ambi =  @back_targets_ambi_rate.sort_by { |_, v| v }.reverse.to_h %>
 
+<p><%= @using_songs %>songs (<%= @using_song_rate %>%) contain <%= @chord_toSearch %> </p>
 <div>
   <table class="table table-bordered">
     <h3><%= @chord_toSearch%> next root </h3>

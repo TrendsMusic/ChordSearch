@@ -1,21 +1,20 @@
 <div class="nested-fields field">
-    <div>検索コード</div>
-    <div class="col-md-6">
-        <label class="control-label">コード選択</label>
+    <div class="form-inline">
+        <label class="control-label ">Chord</label>
             <%= f.select :part1, [
                     ["Ⅰ", "Ⅰ"], ["Ⅱ", "Ⅱ"], ["Ⅲ", "Ⅲ"], 
                     ["Ⅳ", "Ⅳ"], ["Ⅴ", "Ⅴ"], ["Ⅵ", "Ⅵ"], ["Ⅶ" ,"Ⅶ"]
-                ] %>
-            <%= f.select :part2, [["　", ""], ["♭", "♭"], ["#", "#"]] %>
-            <%= f.select :part3, [["　",""], ["m", "m"], ["dim", "dim"], ["aug", "aug"], ["sus4", "sus4"], ["sus2", "sus2"]] %>
-            <%= f.select :part4, [["　",""], ["7", "7"], ["M7", "M7"], ["6", "6"]] %>
-            <%= f.select :part5, [["　",""], ["♭5", "♭5"], ["add9", "add9"], ["♭9", "♭9"], ["9", "9"], ["#9", "#9"], ["add11", "add11"], ["11", "11"], ["#11", "#11"], ["add13", "add13"], ["♭13", "♭13"], ["13", "13"], ["omit3", "omit3"], ["omit5", "omit5"]] %>
-            <%= f.select :part6, [["　",""], ["♭5", "♭5"], ["add9", "add9"], ["♭9", "♭9"], ["9", "9"], ["#9", "#9"], ["add11", "add11"], ["11", "11"], ["#11", "#11"], ["add13", "add13"], ["♭13", "♭13"], ["13", "13"], ["omit3", "omit3"], ["omit5", "omit5"]] %>
-            <%= f.select :part7, [["　",""], ["♭5", "♭5"], ["add9", "add9"], ["♭9", "♭9"], ["9", "9"], ["#9", "#9"], ["add11", "add11"], ["11", "11"], ["#11", "#11"], ["add13", "add13"], ["♭13", "♭13"], ["13", "13"], ["omit3", "omit3"], ["omit5", "omit5"]] %>
+                ] ,{} ,class: "form-control col-sm-1"%>
+            <%= f.select :part2, [["　", ""], ["♭", "♭"], ["#", "#"]] ,{} ,class: "form-control col-sm-1"%>
+            <%= f.select :part3, [["　",""], ["m", "m"], ["m♭5", "m♭5"], ["dim", "dim"], ["aug", "aug"], ["sus4", "sus4"], ["sus2", "sus2"]] ,{} ,class: "form-control"%>
+            <%= f.select :part4, [["　",""], ["7", "7"], ["M7", "M7"], ["6", "6"]] ,{} ,class: "form-control col-sm-1"%>
+            <%= f.select :part5, [["　",""], ["♭5", "♭5"], ["add9", "add9"], ["♭9", "♭9"], ["9", "9"], ["#9", "#9"], ["add11", "add11"], ["11", "11"], ["#11", "#11"], ["add13", "add13"], ["♭13", "♭13"], ["13", "13"], ["omit3", "omit3"], ["omit5", "omit5"]] ,{} ,class: "form-control col-sm-1"%>
+            <%= f.select :part6, [["　",""], ["♭5", "♭5"], ["add9", "add9"], ["♭9", "♭9"], ["9", "9"], ["#9", "#9"], ["add11", "add11"], ["11", "11"], ["#11", "#11"], ["add13", "add13"], ["♭13", "♭13"], ["13", "13"], ["omit3", "omit3"], ["omit5", "omit5"]] ,{} ,class: "form-control col-sm-1"%>
+            <%= f.select :part7, [["　",""], ["♭5", "♭5"], ["add9", "add9"], ["♭9", "♭9"], ["9", "9"], ["#9", "#9"], ["add11", "add11"], ["11", "11"], ["#11", "#11"], ["add13", "add13"], ["♭13", "♭13"], ["13", "13"], ["omit3", "omit3"], ["omit5", "omit5"]] ,{} ,class: "form-control col-sm-1"%>
             <%= f.select :part8, [["　",""], ["onⅠ", "onⅠ"], ["onⅠ♭", "onⅠ♭"], ["onⅠ#", "onⅠ#"], ["onⅡ", "onⅡ"], ["onⅡ♭", "onⅡ♭"], ["onⅡ#", "onⅡ#"], ["onⅢ", "onⅢ"], ["onⅢ♭", "onⅢ♭"], ["onⅢ#", "onⅢ#"], 
-                                  ["onⅣ", "onⅣ"], ["onⅣ♭", "onⅣ♭"], ["onⅣ#", "onⅣ#"], ["onⅤ", "onⅤ"], ["onⅤ♭", "onⅤ♭"], ["onⅤ#", "onⅤ#"], ["onⅥ", "onⅥ"], ["onⅥ♭", "onⅥ♭"], ["onⅥ#", "onⅥ#"], ["onⅦ" ,"onⅦ"], ["onⅦ♭" ,"onⅦ♭"], ["onⅦ#" ,"onⅦ#"]] %>
-    </div> 
+                                  ["onⅣ", "onⅣ"], ["onⅣ♭", "onⅣ♭"], ["onⅣ#", "onⅣ#"], ["onⅤ", "onⅤ"], ["onⅤ♭", "onⅤ♭"], ["onⅤ#", "onⅤ#"], ["onⅥ", "onⅥ"], ["onⅥ♭", "onⅥ♭"], ["onⅥ#", "onⅥ#"], ["onⅦ" ,"onⅦ"], ["onⅦ♭" ,"onⅦ♭"], ["onⅦ#" ,"onⅦ#"]] ,{} ,class: "form-control col-sm-1" %>
     <%= link_to_remove_association 'delete', f, class: 'btn btn-danger' %>
+    </div> 
 </div>
 
 

@@ -10,7 +10,7 @@ class Song < ApplicationRecord
       title = row[0]
       artist = row[1]
       genre = row[2]
-      genre = genre.gsub("jazz","Jazz")if (row[2] != nil)
+      #genre = genre.gsub("jazz","Jazz")if (row[2] != nil)
       section_numbar = row[3]
       key = row[4]
       content = row[5].gsub(/\s/, '') if (row[5] != nil)
@@ -236,6 +236,7 @@ class Song < ApplicationRecord
           chord = chord.gsub("m","")
           chord_root << chord
         end
+        
         #part1 ~ part3 以外を消去した仮行列の作成
         chord.each do |chord|
           chord = chord.content
@@ -262,6 +263,7 @@ class Song < ApplicationRecord
         chords = chord.with_content_regexp(chord_toSearch).pluck(:content)
         chords_root = chord_root.select{|x| x.include?("#{chord_toSearch_root}")}
         chords_ambi = chord_ambi.select{|x| x.include?("#{chord_toSearch_ambi}")}
+        
     end
     return [songs, chords, chords_root, chords_ambi, chord_toSearch, chord_toSearch_root, chord_toSearch_ambi, title, artist, genre, key, section_numbar]
   end
@@ -1191,6 +1193,8 @@ class Song < ApplicationRecord
                     "Ⅶ":root7try_rate,"Ⅶm":root7m_rate,"Ⅶm♭5":root7_b5_rate,"Ⅶdim":root7dim_rate,"Ⅶaug":root7aug_rate,"Ⅶsus4":root7sus4_rate,"Ⅶsus2":root7sus2_rate,
                     "Ⅶ♭":root7btry_rate,"Ⅶ♭m":root7bm_rate,"Ⅶ♭m♭5":root7b_b5_rate,"Ⅶ♭dim":root7bdim_rate,"Ⅶ♭aug":root7baug_rate,"Ⅶ♭sus4":root7bsus4_rate,"Ⅶ♭sus2":root7bsus2_rate,
                     "Ⅶ#":root7uptry_rate,"Ⅶ#m":root7upm_rate,"Ⅶ#m♭5":root7up_b5_rate,"Ⅶ#dim":root7updim_rate,"Ⅶ#aug":root7upaug_rate,"Ⅶ#sus4":root7upsus4_rate,"Ⅶ#sus2":root7upsus2_rate}
+                    
+                    
   return[root_rate_data,ambi_rate_data]
   end
   
